@@ -450,7 +450,7 @@
     transform: translate(-50%, -50%);
     width: 150%;
     height: 0;
-    background: rgba(16, 18, 8, 0.7);
+    background: #ffffff99;
     transition: 0s 0.7s;
 }
 
