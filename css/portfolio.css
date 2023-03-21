@@ -110,7 +110,8 @@
     z-index: 999;
     width: 30px;
     height: 30px;
-    background: rgba(0, 0, 0, 0.4)
+    background: rgba(0, 0, 0, 0.4);
+    cursor: pointer;
 }
 
 .mopen button {
