@@ -364,6 +364,39 @@
 }
 
 
+.section01 .WheelDown {
+    position: absolute;
+    inset: auto auto 100px 50%;
+    transform: translate(-50%, 0);
+    animation: wheel 1s ease infinite;
+}
+
+@keyframes wheel {
+
+    0%,
+    100% {
+        transform: translate(-50%, 0);
+    }
+
+    50% {
+        transform: translate(-50%, -10px);
+    }
+}
+
+.section01 .WheelDown a {}
+
+.section01 .WheelDown i {
+    display: block;
+    line-height: 0.3;
+    font-size: 40px;
+    text-align: center;
+}
+
+
+
+
+
+
 .slogan .ti-cursor {
     margin-left: 10px;
 }
