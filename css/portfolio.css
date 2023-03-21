@@ -1,6 +1,4 @@
-.Wrap {
-    background: #000;
-}
+.Wrap {}
 
 .inner {
     display: flex;
@@ -19,11 +17,52 @@
 
 
 
+.cover {
+    position: fixed;
+    inset: 0 0 0 -100%;
+    z-index: 999;
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: linear-gradient(to right, #061f07, #171631);
+    color: #fff;
+    overflow: hidden;
+
+    transition: .7s;
+    text-align: center;
+}
+
+
+.cover ul {}
+
+.cover ul li {
+    line-height: 40px;
+}
+
+.cover.on {
+    inset: 0 0 0 0;
+}
+
+
+
 .header {
     position: fixed;
     inset: 50px auto auto 50px;
     z-index: 999;
     color: #fff;
+    font-size: 30px;
+}
+
+.header h1 {
+    text-align: center;
+
+}
+
+.header h1 a {
+    line-height: 1.2;
 }
 
 
@@ -53,7 +92,7 @@
     width: 8px;
     height: 8px;
     border-radius: 50%;
-    background: #fff;
+    background: linear-gradient(to left, tomato 40%, orange);
     transition: .5s;
 }
 
@@ -61,6 +100,74 @@
     width: 50px;
     border-radius: 5px;
 }
+
+
+
+
+.mopen {
+    position: fixed;
+    inset: 50px 50px auto auto;
+    z-index: 999;
+    width: 30px;
+    height: 30px;
+    background: rgba(0, 0, 0, 0.4)
+}
+
+.mopen button {
+    font-size: 0;
+    border: none;
+    outline: none;
+    background: none;
+}
+
+.mopen::before,
+.mopen::after {
+    content: "";
+    position: absolute;
+    background: #ddd;
+    height: 2px;
+}
+
+.mopen::before {
+    inset: 5px 5px auto 5px;
+}
+
+.mopen::after {
+    inset: auto 5px 5px 5px;
+}
+
+.mopen button::before,
+.mopen button::after {
+    content: "";
+    position: absolute;
+    transform: translate(0, -50%);
+    background: #ddd;
+    height: 2px;
+}
+
+.mopen button::before,
+.mopen button::after {
+    inset: 50% 5px auto 5px;
+}
+
+.mopen.on::before,
+.mopen.on::after {
+    opacity: 0;
+}
+
+.mopen.on button::before {
+    transform: translate(0, -50%) rotate(45deg);
+}
+
+.mopen.on button::after {
+    transform: translate(0, -50%) rotate(-45deg);
+}
+
+
+
+
+
+
 
 
 
@@ -72,7 +179,6 @@
 }
 
 .section .description {
-    background: tan;
     transform: translate(300px, 0);
     opacity: 0;
     transition: 0s 0.6s;
@@ -95,10 +201,9 @@
 }
 
 .section .content {
-    padding: 15px;
+    padding: 10px;
     background: #222;
     border-radius: 40px;
-    overflow: hidden;
     box-shadow: 0 0 3px 0 #000;
 }
 
@@ -116,8 +221,32 @@
     transform: translate(0, calc(-100% + 500px));
 }
 
+.section .content {
+    position: relative;
+}
+
+.section .mobile {
+    position: absolute;
+    inset: auto auto -100px 100px;
+    width: 160px;
+    height: 300px;
+    border-radius: 20px;
+    border: 7px solid #000000;
+    border-bottom: 20px solid #000;
+}
+
+.section .mobile img {
+    transition: 5s linear;
+}
+
+.section .mobile img:hover {
+    transform: translate(0, calc(-100% + 300px));
+}
+
+
+
 .section .description {
-    padding: 15px;
+    padding: 10px;
     background: #3b3535;
     border-radius: 40px;
     box-shadow: 0 0 3px 0 #000;
@@ -193,12 +322,14 @@
 }
 
 .section01 {
-    background: #000;
+    position: relative;
     color: #fff;
+    background: linear-gradient(#000, #232441);
 }
 
 .section01 .slogan {
     flex-direction: column;
+    z-index: 999;
 }
 
 .section01 .slogan h2 {
@@ -211,52 +342,142 @@
 .section01 .slogan p {
     font-size: 18px;
     margin: 0 0 15px 0;
+    transform: translate(0, 20px);
+    opacity: 0;
+    transition: 1s 4.5s;
+}
+
+.section01 .slogan p.on {
+    transform: translate(0, 0);
+    opacity: 1;
+}
+
+.section01 .slogan .sub_tit {
+    opacity: 0;
+    transition: 1s 5.2s;
+    transform: translate(0, 20px);
+}
+
+.section01 .slogan .sub_tit.on {
+    opacity: 1;
+    transform: translate(0, 0);
+}
+
+
+.slogan .ti-cursor {
+    margin-left: 10px;
+}
+
+.section01 .stars {
+    position: absolute;
+    inset: 0 0 0 0;
+}
+
+.star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background-color: #fff;
+    opacity: 0;
+    border-radius: 50%;
+    animation: star 3s ease infinite;
+}
+
+@keyframes star {
+
+    0%,
+    100% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
 }
 
 .section02 {
-    background: #222;
+    position: relative;
+    background: url(../img/pf01_bg.jpg) no-repeat center center/cover;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.cover {
-    position: fixed;
+.section02::before {
+    content: "";
+    position: absolute;
     inset: 0 0 0 0;
-    z-index: 999;
+    backdrop-filter: blur(2px);
+    background: rgba(0, 0, 0, 0.4);
+}
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    background: #000;
-    color: #fff;
-    height: 0;
-    transition: 1s;
-
+.section03 {
+    position: relative;
     overflow: hidden;
 }
 
-.cover.on {
-    height: 100vh;
+.section03::before {
+    content: "";
+    position: absolute;
+    inset: 50% auto auto 50%;
+    transform: translate(-50%, -50%);
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(#0b1d04, rgb(159 209 159));
+    border-radius: 50%;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0s 0.7s;
 }
+
+.section03.on::before {
+    inset: 50% auto auto 50%;
+    transform: translate(-50%, -50%);
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(#0b1d04, rgb(159 209 159));
+    border-radius: 50%;
+    opacity: 1;
+    visibility: visible;
+    transition: 1s 0.6s;
+}
+
+.section03 .inner {
+    position: relative;
+}
+
+.section03 .inner::before {
+    content: "";
+    position: absolute;
+    inset: 50% auto auto 50%;
+    transform: translate(-50%, -50%);
+    width: 150%;
+    height: 0;
+    background: rgba(16, 18, 8, 0.7);
+    transition: 0s 0.7s;
+}
+
+.section03.on .inner::before {
+    content: "";
+    position: absolute;
+    inset: 50% auto auto 50%;
+    transform: translate(-50%, -50%);
+    width: 150%;
+    height: 300px;
+    transition: 1s 0.6s;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -267,65 +488,8 @@
     inset: auto 50px 50px auto;
     z-index: 999;
     font-size: 30px;
+    background: #000000;
     color: #fff;
-}
-
-.mopen {
-    position: fixed;
-    inset: 50px 50px auto auto;
-    z-index: 999;
-
-    width: 30px;
-    height: 30px;
-    background: #f7f7f7;
-}
-
-.mopen button {
-    font-size: 0;
-    border: none;
-    outline: none;
-    background: none;
-}
-
-.mopen::before,
-.mopen::after {
-    content: "";
-    position: absolute;
-    background: #333;
-    height: 2px;
-}
-
-.mopen::before {
-    inset: 5px 5px auto 5px;
-}
-
-.mopen::after {
-    inset: auto 5px 5px 5px;
-}
-
-.mopen button::before,
-.mopen button::after {
-    content: "";
-    position: absolute;
-    transform: translate(0, -50%);
-    background: #333;
-    height: 2px;
-}
-
-.mopen button::before,
-.mopen button::after {
-    inset: 50% 5px auto 5px;
-}
-
-.mopen.on::before,
-.mopen.on::after {
-    opacity: 0;
-}
-
-.mopen.on button::before {
-    transform: translate(0, -50%) rotate(45deg);
-}
-
-.mopen.on button::after {
-    transform: translate(0, -50%) rotate(-45deg);
+    padding: 10px;
+    border-radius: 50%;
 }
