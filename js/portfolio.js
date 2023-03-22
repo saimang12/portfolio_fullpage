@@ -21,7 +21,7 @@ $(function () {
     });
 
 
-    $('.cover li').on('click', function () {
+    $('h1>a,.cover li,.gnb li,.toTop').on('click', function () {
         $('.cover').removeClass('on');
         $('.mopen').removeClass('on');
     });

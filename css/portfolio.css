@@ -53,12 +53,13 @@
     inset: 50px auto auto 50px;
     z-index: 999;
     color: #fff;
-    font-size: 30px;
 }
 
 .header h1 {
     text-align: center;
-
+    font-family: 'Alkatra', cursive;
+    font-size: 35px;
+    letter-spacing: 2px;
 }
 
 .header h1 a {
@@ -394,10 +395,6 @@
 }
 
 
-
-
-
-
 .slogan .ti-cursor {
     margin-left: 10px;
 }
@@ -429,66 +426,53 @@
     }
 }
 
-.section02 {
-    position: relative;
-    background: url(../img/pf01_bg.jpg) no-repeat center center/cover;
-}
 
-.section02::before {
-    content: "";
-    position: absolute;
-    inset: 0 0 0 0;
-    backdrop-filter: blur(2px);
-    background: rgba(0, 0, 0, 0.4);
-}
-
-.section03 {
+.pf_section {
     position: relative;
     overflow: hidden;
 }
 
-.section03::before {
-    content: "";
-    position: absolute;
+.pf_section.on::before {
     inset: 50% auto auto 50%;
     transform: translate(-50%, -50%);
-    width: 100px;
-    height: 100px;
-    background: linear-gradient(#0b1d04, rgb(159 209 159));
-    border-radius: 50%;
-    opacity: 0;
-    visibility: hidden;
-    transition: 0s 0.7s;
-}
-
-.section03.on::before {
-    inset: 50% auto auto 50%;
-    transform: translate(-50%, -50%);
-    width: 200%;
-    height: 200%;
-    background: linear-gradient(#0b1d04, rgb(159 209 159));
-    border-radius: 50%;
+    width: 120%;
+    height: 120%;
+    border-radius: 0;
     opacity: 1;
     visibility: visible;
     transition: 1s 0.6s;
 }
 
-.section03 .inner {
+.pf_section .bg_drop::after {
+    content: "";
+    position: absolute;
+    inset: 0 0 0 0;
+    transition: 0s 0.6s;
+}
+
+.pf_section.on .bg_drop::after {
+    /* backdrop-filter: blur(2px); */
+    background: rgba(0, 0, 0, 0.1);
+    transition: 1s 0.6s;
+}
+
+
+.pf_section .inner {
     position: relative;
 }
 
-.section03 .inner::before {
+.pf_section .inner::before {
     content: "";
     position: absolute;
     inset: 50% auto auto 50%;
     transform: translate(-50%, -50%);
     width: 150%;
     height: 0;
-    background: #ffffff99;
+    background: rgba(0, 0, 0, 0.7);
     transition: 0s 0.7s;
 }
 
-.section03.on .inner::before {
+.pf_section.on .inner::before {
     content: "";
     position: absolute;
     inset: 50% auto auto 50%;
@@ -498,9 +482,30 @@
     transition: 1s 0.6s;
 }
 
+.pf_section.on::before {
+    inset: 50% auto auto 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+    opacity: 1;
+    visibility: visible;
+    transition: 1s 0.6s;
+}
 
-
-
+.section02::before {
+    content: "";
+    position: absolute;
+    inset: 50% auto auto 50%;
+    transform: translate(-50%, -50%);
+    width: 100px;
+    height: 100px;
+    background: url(../img/pf01_bg.jpg) no-repeat center center/cover;
+    border-radius: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0s 0.7s;
+}
 
 
 
