@@ -58,7 +58,7 @@
 .header h1 {
     text-align: center;
     font-family: 'Alkatra', cursive;
-    font-size: 35px;
+    font-size: 28px;
     letter-spacing: 2px;
 }
 
@@ -107,11 +107,11 @@
 
 .mopen {
     position: fixed;
-    inset: 50px 50px auto auto;
+    inset: 50px 45px auto auto;
     z-index: 999;
     width: 30px;
     height: 30px;
-    background: rgba(0, 0, 0, 0.4);
+    /* background: rgba(0, 0, 0, 0.4); */
     cursor: pointer;
 }
 
@@ -126,16 +126,16 @@
 .mopen::after {
     content: "";
     position: absolute;
-    background: #ddd;
+    background: #fff;
     height: 2px;
 }
 
 .mopen::before {
-    inset: 5px 5px auto 5px;
+    inset: 7px 5px auto 5px;
 }
 
 .mopen::after {
-    inset: auto 5px 5px 5px;
+    inset: auto 5px 7px 5px;
 }
 
 .mopen button::before,
@@ -143,7 +143,7 @@
     content: "";
     position: absolute;
     transform: translate(0, -50%);
-    background: #ddd;
+    background: #fff;
     height: 2px;
 }
 
@@ -188,13 +188,13 @@
 
 .section.on .content {
     transform: translate(0, 0);
-    transition: 1s .6s;
+    transition: 1s 1.6s;
     opacity: 1;
 }
 
 .section.on .description {
     transform: translate(0, 0);
-    transition: 1s 1.6s;
+    transition: 1s 2.6s;
     opacity: 1;
 }
 
@@ -452,9 +452,12 @@
 
 .pf_section.on .bg_drop::after {
     /* backdrop-filter: blur(2px); */
-    background: rgba(0, 0, 0, 0.1);
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(2px);
     transition: 1s 0.6s;
 }
+
+
 
 
 .pf_section .inner {
@@ -482,20 +485,40 @@
     transition: 1s 0.6s;
 }
 
-.pf_section.on::before {
+.pf_section::before {
+    content: "";
+    position: absolute;
     inset: 50% auto auto 50%;
-    transform: translate(-50%, -50%) scale(1.45);
+    transform: translate(-50%, -50%) scale(1.2);
     width: 100%;
     height: 100%;
-    border-radius: 50%;
-    opacity: 1;
-    visibility: visible;
-    transition: 1s 0.6s;
-    animation: setbg 1s 1.6s;
-    animation-fill-mode: forwards;
+    transition: 0s 0.7s;
+    /* animation: offsetbg 1s; */
 }
 
-@keyframes setbg {
+/* @keyframes offsetbg {
+    0% {
+        border-radius: 30%;
+    }
+
+    10%,
+    100% {
+        border-radius: 50%;
+    }
+} */
+
+.pf_section.on::before {
+    inset: 50% auto auto 50%;
+    transform: translate(-50%, -50%) scale(1);
+    width: 100%;
+    height: 100%;
+    filter: grayscale(0.7);
+    transition: 1s 0.6s;
+    /* animation: setbg 1s 1.6s;
+    animation-fill-mode: forwards; */
+}
+
+/* @keyframes setbg {
     0% {
         transform: translate(-50%, -50%) scale(1.45);
         border-radius: 50%;
@@ -506,36 +529,28 @@
         transform: translate(-50%, -50%) scale(1);
         border-radius: 0;
     }
-}
+} */
 
-.pf_section::before {
-    content: "";
-    position: absolute;
-    inset: 50% auto auto 50%;
-    transform: translate(-50%, -50%) scale(1);
-    width: 100px;
-    height: 100px;
 
-    border-radius: 50%;
-    opacity: 0;
-    visibility: hidden;
-    transition: 1s;
-    animation: offsetbg 1s;
-}
-
-@keyframes offsetbg {
-    0% {
-        border-radius: 30%;
-    }
-
-    10%,
-    100% {
-        border-radius: 50%;
-    }
-}
 
 .section02::before {
     background: url(../img/pf01_bg.jpg) no-repeat center center/cover;
+}
+
+.section03::before {
+    background: url(../img/pf02_bg.jpg) no-repeat center center/cover;
+}
+
+.section04::before {
+    background: url(../img/pf03_bg.jpg) no-repeat center center/cover;
+}
+
+.section05::before {
+    background: url(../img/pf04_bg.jpg) no-repeat center center/cover;
+}
+
+.section06::before {
+    background: url(../img/pf05_bg.png) no-repeat center center/cover;
 }
 
 
