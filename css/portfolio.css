@@ -297,13 +297,15 @@
 }
 
 .section .description ul>li b {
-    width: 100px;
+    flex: 2;
     font-weight: 500;
     margin: 0 20px 0 0;
 }
 
 .section .description ul>li p {
+    flex: 8;
     font-size: 15px;
+    word-break: keep-all;
 }
 
 .section .description span {
@@ -314,14 +316,13 @@
 .section .description span>a {
     display: inline-block;
     padding: 10px 20px;
-    background: #111;
+    background: #666;
     color: #fff;
     transition: .3s;
+    font-size: 14px;
 }
 
-.section .description span>a:hover {
-    background: green;
-}
+
 
 .section01 {
     position: relative;
@@ -537,20 +538,40 @@
     background: url(../img/pf01_bg.jpg) no-repeat center center/cover;
 }
 
+.section02 .description span>a:hover {
+    background: green;
+}
+
 .section03::before {
     background: url(../img/pf02_bg.jpg) no-repeat center center/cover;
+}
+
+.section03 .description span>a:hover {
+    background: #3b404c;
 }
 
 .section04::before {
     background: url(../img/pf03_bg.jpg) no-repeat center center/cover;
 }
 
+.section04 .description span>a:hover {
+    background: #C53428;
+}
+
 .section05::before {
     background: url(../img/pf04_bg.jpg) no-repeat center center/cover;
 }
 
+.section05 .description span>a:hover {
+    background: #444;
+}
+
 .section06::before {
     background: url(../img/pf05_bg.png) no-repeat center center/cover;
+}
+
+.section06 .description span>a:hover {
+    background: green;
 }
 
 

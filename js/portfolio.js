@@ -57,7 +57,7 @@ $(function () {
 // jQuery 끝
 
 
-// 바닐라 자바스크립트 시작
+// 자바스크립트 시작
 document.addEventListener("DOMContentLoaded", function () {
     new TypeIt(".slogan>h2", {
         speed: 150,
@@ -70,4 +70,4 @@ document.addEventListener("DOMContentLoaded", function () {
         .go();
 });
 
-// 바닐라 자바 스크립트 끝
+// 자바 스크립트 끝
